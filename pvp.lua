@@ -251,9 +251,7 @@ task.spawn(function()
     end
 end)
 R.Heartbeat:Connect(function()
-    local ch = lp.Character
-    local hrp = ch and ch:FindFirstChild("HumanoidRootPart")
-    local hum = ch and ch:FindFirstChildOfClass("Humanoid")
+    local ch, hrp, hum = lp.Character, ch and ch:FindFirstChild("HumanoidRootPart"), ch and ch:FindFirstChildOfClass("Humanoid")
     if not hrp or not hum then return end
     if flags.god then
         local actualMax = 1e20
