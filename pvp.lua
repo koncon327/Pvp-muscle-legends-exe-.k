@@ -254,8 +254,8 @@ R.Heartbeat:Connect(function()
     local ch, hrp, hum = lp.Character, ch and ch:FindFirstChild("HumanoidRootPart"), ch and ch:FindFirstChildOfClass("Humanoid")
     if not hrp or not hum then return end
     if flags.god then
-        local actualMax = 1e15
-        if hum.MaxHealth < 1e14 then hum.MaxHealth = actualMax else actualMax = hum.MaxHealth end
+        local actualMax = 1e20
+        if hum.MaxHealth < 1e19 then hum.MaxHealth = actualMax else actualMax = hum.MaxHealth end
         if hum.Health < actualMax then hum.Health = actualMax end
         hum.PlatformStand = false
         if hrp.Position.Y < VOID_Y_LOW then hrp.Anchored, hrp.CFrame, hrp.AssemblyLinearVelocity = false, SPAWN_CF, Vector3.zero end
