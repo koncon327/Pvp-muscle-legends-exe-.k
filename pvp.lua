@@ -251,7 +251,9 @@ task.spawn(function()
     end
 end)
 R.Heartbeat:Connect(function()
-    local ch, hrp, hum = lp.Character, ch and ch:FindFirstChild("HumanoidRootPart"), ch and ch:FindFirstChildOfClass("Humanoid")
+    local ch = lp.Character
+    local hrp = ch and ch:FindFirstChild("HumanoidRootPart")
+    local hum = ch and ch:FindFirstChildOfClass("Humanoid")
     if not hrp or not hum then return end
     if flags.god then
         local actualMax = 1e20
@@ -261,7 +263,7 @@ R.Heartbeat:Connect(function()
         if hrp.Position.Y < VOID_Y_LOW then hrp.Anchored, hrp.CFrame, hrp.AssemblyLinearVelocity = false, SPAWN_CF, Vector3.zero end
     end
     if flags.spec and PvP.selectedPlayer and PvP.selectedPlayer.Character then
-        local th = PvP.selectedPlayer.Character:FindFirstChild("HumanoidRootPart") or PvP.selectedPlayer.Character:FindFirstChild("Head")
+        local th = PvP.selectedPlayer.Character:FindFirstChild("HumanoidRootPart")
         if th then
             cam.CameraType = Enum.CameraType.Scriptable
             local ry, rp = math.rad(yaw), math.rad(pitch)
